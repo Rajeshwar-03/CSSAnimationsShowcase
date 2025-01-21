@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Animations Showcase</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .animation-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+
+    .animation-preview {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 150px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fff;
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .copy-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .copy-button:hover {
+      background: #0056b3;
+    }
+
+    .code-snippet {
+      background: #272822;
+      color: #fff;
+      padding: 10px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 14px;
+      overflow-x: auto;
+    }
+
+    .animation-card .box {
+      width: 50px;
+      height: 50px;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .bounce {
+      animation: bounce 1s infinite;
+    }
+
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .rotate {
+      animation: rotate 2s linear infinite;
+    }
+
+    @keyframes zoom-in {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.2);
+      }
+    }
+
+    .zoom-in {
+      animation: zoom-in 3s infinite alternate;
+    }
+
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .fade-in {
+      animation: fade-in 2s ease-in-out infinite alternate;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CSS Animations Showcase</h1>
+    <p>Explore animations and copy the code to use in your projects!</p>
+  </header>
+
+  <div class="container">
+    <!-- Bounce Animation -->
+    <div class="animation-card">
+      <h2>Bounce Animation</h2>
+      <div class="animation-preview">
+        <div class="box bounce" style="background: #007BFF;"></div>
+      </div>
+      <button class="copy-button" onclick="copyCode('bounce-code')">Copy Code</button>
+      <pre id="bounce-code" class="code-snippet">@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.bounce {
+  animation: bounce 1s infinite;
+}</pre>
+    </div>
+
+    <!-- Rotate Animation -->
+    <div class="animation-card">
+      <h2>Rotate Animation</h2>
+      <div class="animation-preview">
+        <div class="box rotate" style="background: #28A745;"></div>
+      </div>
+      <button class="copy-button" onclick="copyCode('rotate-code')">Copy Code</button>
+      <pre id="rotate-code" class="code-snippet">@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rotate {
+  animation: rotate 2s linear infinite;
+}</pre>
+    </div>
+
+    <!-- Zoom-In Animation with Image -->
+    <div class="animation-card">
+      <h2>Zoom-In Animation</h2>
+      <div class="animation-preview">
+        <img class="zoom-in" src="data:image/png;base64,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" alt="Zoom-In Image" style="border-radius: 8px;">
+      </div>
+      <button class="copy-button" onclick="copyCode('zoom-in-code')">Copy Code</button>
+      <pre id="zoom-in-code" class="code-snippet">@keyframes zoom-in {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+.zoom-in {
+  animation: zoom-in 3s infinite alternate;
+}</pre>
+    </div>
+
+    <!-- Fade-In Animation with Image -->
+    <div class="animation-card">
+      <h2>Fade-In Animation</h2>
+      <div class="animation-preview">
+        <img class="fade-in" src="data:image/png;base64,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" alt="Fade-In Image" style="border-radius: 8px;">
+      </div>
+      <button class="copy-button" onclick="copyCode('fade-in-code')">Copy Code</button>
+      <pre id="fade-in-code" class="code-snippet">@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fade-in 2s ease-in-out infinite alternate;
+}</pre>
+    </div>
+  </div>
+
+  <script>
+    function copyCode(elementId) {
+      const code = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        alert('Code copied to clipboard!');
+      }, () => {
+        alert('Failed to copy code.');
+      });
+    }
+  </script>
+</body>
+</html>
